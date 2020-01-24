@@ -2,6 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>DentsuDataLab.Adobe</PackageId>
+    <Authors>Frederik Baun Hansen, Kasper Hesthaven</Authors>
+    <Product>Adobe Analytics API</Product>
+    <Description>This package wraps the Analytics Reporting API making it easier to use.</Description>
+    <PackageProjectUrl>https://gitlab.com/dentsu-data-lab/adobe</PackageProjectUrl>
+    <RepositoryUrl>https://gitlab.com/dentsu-data-lab/adobe</RepositoryUrl>
+    <PackageTags>adobe analytics</PackageTags>
+    <PackageLicenseFile>license.txt</PackageLicenseFile>
+    <Company>Dentsu Data Lab</Company>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,8 +23,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="jose-jwt" Version="2.4.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="Portable.BouncyCastle" Version="1.8.5" />
+    <PackageReference Include="jose-jwt" Version="2.5.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.5.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="license.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>
