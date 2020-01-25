@@ -11,10 +11,10 @@ test:
     - dotnet restore
     - dotnet test
  
- deploy:
-   stage: deploy
-   script:
-     - cd Adobe
-     - export VERSION=$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)
-     - dotnet build --configuration=Release
-     - dotnet pack
+deploy:
+  stage: deploy
+  script:
+    - cd Adobe
+    - export VERSION=$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)
+    - dotnet build --configuration=Release
+    - dotnet pack
