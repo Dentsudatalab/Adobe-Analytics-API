@@ -1,17 +1,11 @@
 image: mcr.microsoft.com/dotnet/core/sdk:2.2.301
 
 before_script:
-    - "cd Adobe"
     - "dotnet restore"
 
 stages:
-  - build
   - test
 
-build:
-  stage: build
-  script:
-    - "dotnet build"
 test:
   stage: test
   script:
