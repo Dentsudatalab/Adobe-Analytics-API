@@ -8,7 +8,7 @@
         [Test]
         public void SampleTest_ShouldPass()
         {
-            Assert.Pass();
+            Assert.Fail();
         }
     }
 }
