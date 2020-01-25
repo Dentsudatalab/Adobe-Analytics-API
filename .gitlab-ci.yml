@@ -12,7 +12,7 @@ test:
     - dotnet test
  
  deploy:
-   stage: deploy:
+   stage: deploy
    script:
      - cd Adobe
      - export VERSION=$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)
