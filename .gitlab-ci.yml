@@ -1,0 +1,17 @@
+before_script:
+    - "cd src"
+    - "dotnet restore"
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - "dotnet build"
+test:
+  stage: test
+  script:
+    - "dotnet test"
+  
