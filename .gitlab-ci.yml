@@ -1,5 +1,5 @@
 before_script:
-    - "cd src"
+    - "cd Adobe"
     - "dotnet restore"
 
 stages:
