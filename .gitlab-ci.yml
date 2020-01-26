@@ -18,4 +18,4 @@ deploy:
     - export VERSION=$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)
     - dotnet build --configuration=Release
     - dotnet pack --configuration=Release
-    - dotnet nuget push -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY
+    - dotnet nuget push bin/Release/DentsuDataLab.Adobe.$VERSION.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY
