@@ -1,15 +1,15 @@
 image: mcr.microsoft.com/dotnet/core/sdk:2.2.301
 
 stages:
-#  - test
+  - test
   - deploy
 
-#test:
-#  stage: test
-#  script:
-#    - cd Adobe.Tests
-#    - dotnet restore
-#    - dotnet test
+test:
+  stage: test
+  script:
+    - cd Adobe.Tests
+    - dotnet restore
+    - dotnet test
  
 deploy:
   stage: deploy
