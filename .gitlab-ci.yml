@@ -16,5 +16,6 @@ deploy:
   script:
     - cd Adobe
     - export VERSION=$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)
+    - echo $VERSION
     - dotnet build --configuration=Release
     - dotnet pack
