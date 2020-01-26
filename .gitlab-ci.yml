@@ -16,6 +16,6 @@ deploy:
   script:
     - cd Adobe
     - export VERSION=$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)
-    - echo $VERSION
     - dotnet build --configuration=Release
-    - dotnet pack
+    - dotnet pack --configuration=Release
+    - dotnet nuget push -s https://api.nuget.org/v3/index.json -k $NUGET_API_KEY
