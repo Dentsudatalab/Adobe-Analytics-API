@@ -15,12 +15,11 @@
         /// </summary>
         /// <param name="authValues">The auth values to use.</param>
         /// <returns>A JWT.</returns>
-        public static string CreateJwt(AuthValues authValues, DateTime? exp = null)
+        public static string CreateJwt(AuthValues authValues)
         {
-            exp = exp ?? DateTime.Now;
             var payload = new Dictionary<string, object>
             {
-                { "exp", new DateTimeOffset(exp.Value.AddMinutes(10)).ToUnixTimeSeconds() },
+                { "exp", new DateTimeOffset(DateTime.Now.AddMinutes(10)).ToUnixTimeSeconds() },
                 { "iss", authValues.OrganizationId },
                 { "sub", authValues.TechnicalAccountId },
                 { "https://ims-na1.adobelogin.com/s/ent_analytics_bulk_ingest_sdk", true },
