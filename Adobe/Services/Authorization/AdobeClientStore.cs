@@ -8,7 +8,7 @@
 
         private IdentityClient _client;
 
-        public IdentityClient Client
+        public virtual IdentityClient Client
 
         {
             get

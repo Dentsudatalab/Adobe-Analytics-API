@@ -22,7 +22,7 @@
                 {
                     { "client_id", authValues.ClientId },
                     { "client_secret", authValues.ClientSecret },
-                    { "jwt_token", authValues.Token }
+                    { "jwt_token", authValues.Jwt }
                 };
 
                 var result = await client.PostFormResponse<IdentityClient>(ExchangeJwtUrl, requestParams);

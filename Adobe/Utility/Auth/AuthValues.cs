@@ -2,7 +2,7 @@
 {
     public class AuthValues
     {
-        public string Token { get; set; }
+        public string Jwt { get; set; }
 
         public string ClientId { get; set; }
 

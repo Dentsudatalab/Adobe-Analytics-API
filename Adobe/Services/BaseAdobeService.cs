@@ -38,21 +38,7 @@
 
         protected async Task AuthorizeClient(AuthValues authValues)
         {
-            if (!AuthService.IsClientLoggedIn())
-            {
-                var jwt = JwtCreator.CreateJwt(authValues);
-
-                var baseAuthValues = new AuthValues
-                {
-                    ClientId = authValues.ClientId,
-                    ClientSecret = authValues.ClientSecret,
-                    Token = jwt
-                };
-
-                await AuthService.AuthorizeClient(baseAuthValues);
-            }
-
-            var client = AuthService.GetClient();
+            var client = await AuthService.AuthorizeClient(authValues);
 
             HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.AccessToken);
 
