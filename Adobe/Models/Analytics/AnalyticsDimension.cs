@@ -120,7 +120,7 @@ namespace Adobe.Models.Analytics
 
         public AnalyticsDimensionFields(FieldsDescriptor parent) : base(parent, string.Empty)
         {
-            MakeFields<AnalyticsMetric>();
+            MakeFields<AnalyticsDimension>();
         }
     }
 }
