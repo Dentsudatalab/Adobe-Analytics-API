@@ -13,6 +13,7 @@ test:
  
 deploy:
   stage: deploy
+  when: manual
   script:
     - cd Adobe
     - export VERSION=$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)
