@@ -1,4 +1,4 @@
-﻿namespace Adobe.Tests.Models.General
+﻿namespace Adobe.Tests.Models.Fields
 {
     using Adobe.Models.General;
     using NUnit.Framework;
