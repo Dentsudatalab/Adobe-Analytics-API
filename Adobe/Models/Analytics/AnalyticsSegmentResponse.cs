@@ -5,8 +5,6 @@ namespace Adobe.Models.Analytics
 
     public class AnalyticsSegmentResponse
     {
-        public static readonly AnalyticsSegmentResponseItemFields Fields = new AnalyticsSegmentResponseItemFields();
-
         [JsonProperty(PropertyName = "content")]
         public IEnumerable<AnalyticsSegmentResponseItem> Content { get; set; }
 

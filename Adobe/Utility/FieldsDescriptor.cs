@@ -7,7 +7,7 @@
 
     public class FieldsDescriptor
     {
-        internal readonly FieldsDescriptor _parent;
+        private readonly FieldsDescriptor _parent;
 
         private readonly string _name;
 
@@ -85,17 +85,6 @@
 
                 return fields;
             }
-        }
-
-        public Field GetMatch(string value)
-        {
-            foreach (var field in All)
-            {
-                if (field.Name == value)
-                    return field;
-            }
-
-            return null;
         }
 
         protected Field MakeField(string name)

@@ -87,13 +87,9 @@ namespace Adobe.Models.General
 
         public Field ParentRsid { get; protected set; }
 
-        public Field CollectionItemType { get; protected set; }
-
         public Field Currency { get; protected set; }
 
         public Field CalendarType { get; protected set; }
-
-        public Field Rsid { get; protected set; }
 
         public SuiteCollectionItemFields() : this(null)
         {

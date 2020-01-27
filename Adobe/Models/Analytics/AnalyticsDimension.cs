@@ -8,7 +8,7 @@ namespace Adobe.Models.Analytics
 
     public class AnalyticsDimension
     {
-        public static readonly AnalyticsMetricFields Fields = new AnalyticsMetricFields();
+        public static readonly AnalyticsDimensionFields Fields = new AnalyticsDimensionFields();
 
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }

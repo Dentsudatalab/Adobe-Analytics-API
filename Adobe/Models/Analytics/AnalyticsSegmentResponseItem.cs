@@ -131,6 +131,8 @@ namespace Adobe.Models.Analytics
 
         public Field Modified { get; protected set; }
 
+        public Field OwnerFullName { get; protected set; }
+
         public Field Tags { get; protected set; }
 
         public Field Compatibility { get; protected set; }
@@ -138,6 +140,8 @@ namespace Adobe.Models.Analytics
         public Field Definition { get; protected set; }
 
         public Field DefinitionLastModified { get; protected set; }
+
+        public Field PublishingStatus { get; }
 
         public Field Categories { get; protected set; }
 
@@ -147,6 +151,8 @@ namespace Adobe.Models.Analytics
 
         public AnalyticsSegmentResponseItemFields(FieldsDescriptor parent) : base(parent, string.Empty)
         {
+            OwnerFullName = new Field(null, "ownerFullName");
+            PublishingStatus = new Field(null, "publishingStatus");
             MakeFields<AnalyticsSegmentResponseItem>();
         }
     }

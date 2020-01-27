@@ -3,9 +3,12 @@ namespace Adobe.Models.Analytics
     using System.Collections.Generic;
     using General;
     using Newtonsoft.Json;
+    using Utility;
 
     public class AnalyticsDateRange
     {
+        public static readonly AnalyticsDateRangeFields Fields = new AnalyticsDateRangeFields();
+
         /// <summary>
         /// Gets system generated id
         /// </summary>
@@ -49,5 +52,26 @@ namespace Adobe.Models.Analytics
 
         [JsonProperty(PropertyName = "created")]
         public System.DateTime? Created { get; set; }
+    }
+
+    public class AnalyticsDateRangeFields : FieldsDescriptor
+    {
+        public Field Definition { get; protected set; }
+
+        public Field OwnerFullName { get; protected set; }
+
+        public Field Modified { get; protected set; }
+
+        public Field Tags { get; protected set; }
+
+        public AnalyticsDateRangeFields() : this(null)
+        {
+        }
+
+        public AnalyticsDateRangeFields(FieldsDescriptor parent) : base(parent, string.Empty)
+        {
+            OwnerFullName = new Field(null, "ownerFullName");
+            MakeFields<AnalyticsDateRange>();
+        }
     }
 }
