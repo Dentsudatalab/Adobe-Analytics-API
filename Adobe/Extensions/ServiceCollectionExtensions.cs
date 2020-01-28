@@ -17,6 +17,12 @@
             services.AddTransient<ReportService>();
             services.AddTransient<SegmentService>();
             services.AddTransient<UserService>();
+
+            services.AddHttpClient<DimensionService>();
+            services.AddHttpClient<MetricService>();
+            services.AddHttpClient<ReportService>();
+            services.AddHttpClient<SegmentService>();
+            services.AddHttpClient<UserService>();
         }
     }
 }
