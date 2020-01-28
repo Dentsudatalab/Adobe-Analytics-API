@@ -18,9 +18,12 @@
         public static string CreateJwt(AuthValues authValues, DateTime? exp = null)
         {
             exp = exp ?? DateTime.Now;
-            var expUnix = new DateTimeOffset(exp.Value.AddMinutes(10)).ToUnixTimeSeconds();
 
-            Console.WriteLine(expUnix);
+            // Convert to UTC
+            var expUnspecified = DateTime.SpecifyKind(exp.Value, DateTimeKind.Unspecified);
+            exp = TimeZoneInfo.ConvertTimeToUtc(expUnspecified, TimeZoneInfo.Utc);
+
+            var expUnix = new DateTimeOffset(exp.Value.AddMinutes(10)).ToUnixTimeSeconds();
 
             var payload = new Dictionary<string, object>
             {

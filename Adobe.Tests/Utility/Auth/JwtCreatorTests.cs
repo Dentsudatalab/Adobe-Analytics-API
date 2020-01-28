@@ -35,7 +35,7 @@
             var jwt = JwtCreator.CreateJwt(authValues, exp);
 
             // Assert
-            const string expectedJwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Nzc4MzM4MDAsImlzcyI6Im9yZ0lkIiwic3ViIjoidGVjaElkIiwiaHR0cHM6Ly9pbXMtbmExLmFkb2JlbG9naW4uY29tL3MvZW50X2FuYWx5dGljc19idWxrX2luZ2VzdF9zZGsiOnRydWUsImF1ZCI6Imh0dHBzOi8vaW1zLW5hMS5hZG9iZWxvZ2luLmNvbS9jL2NsaWVudElkIn0.A-eBYeA6TFt9kZe4dIfCy9gfjghGCzteRoZT1vOPbCKYhiFonEZlQw4LkbyKisz0oeGnThMNimtw1E_4nUxDz-fb8gkecVn2nvkI2iUgJ4ybrSjUeHU7PMNPZ-Ag-ZUFOAuqDNCs9yFJge4l1ixP84t79_C-GpVQI03lVOrTiYKYd2Xye8YjBC5zovi9tPJNE069EUwTsKP8ZTAgDT_IxgFKZK6OAMmsM-9J8IKQ1ziXN1m5OjC2AdXIPU--rDhhpLFMisSGQh_caF3TSmFBdIPPmSinXgiYMO7ALEofxOZiDXOPASyGM3Y4sJio9kxYm59wf8q2rXf24Uamvq5F1Q";
+            const string expectedJwt = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1Nzc4Mzc0MDAsImlzcyI6Im9yZ0lkIiwic3ViIjoidGVjaElkIiwiaHR0cHM6Ly9pbXMtbmExLmFkb2JlbG9naW4uY29tL3MvZW50X2FuYWx5dGljc19idWxrX2luZ2VzdF9zZGsiOnRydWUsImF1ZCI6Imh0dHBzOi8vaW1zLW5hMS5hZG9iZWxvZ2luLmNvbS9jL2NsaWVudElkIn0.t-9dajjHsuxCNghRPV0h82r7JEpTX5uUfUi_UGbiqOlJlBWBeXyzxaHIqWzWOLNKaJeK6Kzmv72zc8KrPZzyqtjvd5Q98A4CwFqxyNMatS-7aCWPX46bP4PaguWHSwt-th9SkB6vBIvwR7cs0wmgJJdrDn-Rf32B0m_xh3fx4aV7w3BDJqCujbrx98VmP6LMRyVSvwikjHx9vQ4YExjDnhNazeW0_P7c97dBxXInFHg1_sF0cAjWoDKSSV-PF4HSexLnLaPAx2bMj1ZGJHAf6JXICqVqRzxXkEsoWuirHxdJY5NSlQfkw4jFXl1CPrPI9doUlZ2X7hW_f6_Afu6M8g";
 
             Assert.That(jwt, Is.EqualTo(expectedJwt));
         }
