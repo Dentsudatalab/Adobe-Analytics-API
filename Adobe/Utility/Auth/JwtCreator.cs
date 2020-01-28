@@ -18,9 +18,13 @@
         public static string CreateJwt(AuthValues authValues, DateTime? exp = null)
         {
             exp = exp ?? DateTime.Now;
+            var expUnix = new DateTimeOffset(exp.Value.AddMinutes(10)).ToUnixTimeSeconds();
+
+            Console.WriteLine(expUnix);
+
             var payload = new Dictionary<string, object>
             {
-                { "exp", new DateTimeOffset(exp.Value.AddMinutes(10)).ToUnixTimeSeconds() },
+                { "exp", expUnix },
                 { "iss", authValues.OrganizationId },
                 { "sub", authValues.TechnicalAccountId },
                 { "https://ims-na1.adobelogin.com/s/ent_analytics_bulk_ingest_sdk", true },
