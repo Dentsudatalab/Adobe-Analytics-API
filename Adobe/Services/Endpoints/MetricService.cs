@@ -31,7 +31,7 @@
                 .WithReportSuiteId(reportSuiteId)
                 .WithFields(fields)
                 .WithParam("locale", locale)
-                .WithParam("segmentable", segmentable.ToString().ToLowerInvariant())
+                .WithParamIf(segmentable, "segmentable", "true")
                 .Build();
 
             var response = await HttpClient.GetApiResponse<IEnumerable<AnalyticsMetric>>(uri);

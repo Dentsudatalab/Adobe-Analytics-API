@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
     using Authorization;
@@ -27,10 +28,12 @@
         {
             await AuthorizeClient(AuthValues);
 
+            rsids = rsids ?? Array.Empty<string>();
+
             var query = new AdobeQueryBuilder("collections/suites")
                 .WithCompanyId(AuthValues.CompanyId)
                 .WithFields(fields)
-                .WithParamIf(rsids != null, "rsids", string.Join(",", rsids))
+                .WithParamIf(rsids.Any(), "rsids", string.Join(",", rsids))
                 .WithParamIf(!string.IsNullOrEmpty(rsidContains), "rsidContains", rsidContains);
 
             var reportSuites = await GetAllPagesFromApi<SuiteCollectionItem>(query);

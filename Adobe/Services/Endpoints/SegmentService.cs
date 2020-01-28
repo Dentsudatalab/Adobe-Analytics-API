@@ -1,5 +1,6 @@
 ﻿namespace Adobe.Services.Endpoints
 {
+    using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -39,6 +40,9 @@
             string sortProperty = "id")
         {
             await AuthorizeClient(AuthValues);
+
+            segmentFilter = segmentFilter ?? Array.Empty<string>();
+            tagNames = tagNames ?? Array.Empty<string>();
 
             var query = new AdobeQueryBuilder("segments")
                 .WithCompanyId(AuthValues.CompanyId)
