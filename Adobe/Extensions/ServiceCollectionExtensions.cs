@@ -12,7 +12,6 @@
 
             services.AddTransient<AdobeAuthorizationService>();
 
-            services.AddTransient<AdobeAuthorizationService>();
             services.AddTransient<DimensionService>();
             services.AddTransient<MetricService>();
             services.AddTransient<ReportService>();
