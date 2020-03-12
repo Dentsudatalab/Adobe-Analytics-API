@@ -4,8 +4,12 @@
     using Adobe.Extensions;
     using Adobe.Services.Authorization;
     using Adobe.Services.Endpoints;
+    using Microsoft.Extensions.Caching.Distributed;
+    using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.DependencyInjection;
+    using Moq;
     using NUnit.Framework;
+    using Settings;
 
     [TestFixture]
     public class ServiceCollectionUsageTests
@@ -26,10 +30,54 @@
         public void AdobeClientStore_ShouldBeAvailable()
         {
             // Act
-            var service = _serviceProvider.GetService<AdobeClientStore>();
+            var service = _serviceProvider.GetService<IAdobeClientStore>();
 
             // Assert
             Assert.That(service, Is.Not.Null.And.TypeOf<AdobeClientStore>());
+        }
+
+        [Test]
+        public void AdobeClientStore_MemoryCache_ShouldBeAvailable()
+        {
+            // Arrange
+            var serviceCollection = new ServiceCollection();
+            var settings = new AdobeSettings
+            {
+                ClientStore = ClientStoreType.MemoryCache
+            };
+
+            serviceCollection.AddAdobeServices(settings);
+            serviceCollection.AddTransient(sp => new Mock<IMemoryCache>().Object);
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            // Act
+            var service = serviceProvider.GetService<IAdobeClientStore>();
+
+            // Assert
+            Assert.That(service, Is.Not.Null.And.TypeOf<AdobeMemoryClientStore>());
+        }
+
+        [Test]
+        public void AdobeClientStore_DistributedCache_ShouldBeAvailable()
+        {
+            // Arrange
+            var serviceCollection = new ServiceCollection();
+            var settings = new AdobeSettings
+            {
+                ClientStore = ClientStoreType.DistributedCache
+            };
+
+            serviceCollection.AddAdobeServices(settings);
+            serviceCollection.AddTransient(sp => new Mock<IDistributedCache>().Object);
+
+            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            // Act
+            var service = serviceProvider.GetService<IAdobeClientStore>();
+
+            // Assert
+            Assert.That(service, Is.Not.Null.And.TypeOf<AdobeDistributedClientStore>());
         }
 
         [Test]
