@@ -2,7 +2,7 @@
 {
     using Utility.Auth;
 
-    public class AdobeClientStore
+    public class AdobeClientStore : IAdobeClientStore
     {
         private readonly object _lockObject = new object();
 

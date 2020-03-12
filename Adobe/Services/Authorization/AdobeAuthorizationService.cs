@@ -8,9 +8,9 @@
 
     public class AdobeAuthorizationService
     {
-        private readonly AdobeClientStore _adobeClientStore;
+        private readonly IAdobeClientStore _adobeClientStore;
 
-        public AdobeAuthorizationService(AdobeClientStore adobeClientStore)
+        public AdobeAuthorizationService(IAdobeClientStore adobeClientStore)
         {
             _adobeClientStore = adobeClientStore;
         }

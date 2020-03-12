@@ -4,6 +4,7 @@
     using System.Text;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class IdentityClient
     {
         private int _expiresIn;
