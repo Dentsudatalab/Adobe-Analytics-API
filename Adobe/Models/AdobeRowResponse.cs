@@ -1,8 +1,10 @@
 ﻿namespace Adobe.Models
 {
+    using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class AdobeRowResponse<T>
     {
         [JsonProperty("content")]

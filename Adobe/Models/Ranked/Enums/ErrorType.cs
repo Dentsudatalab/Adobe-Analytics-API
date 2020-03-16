@@ -1,6 +1,9 @@
 ﻿// ReSharper disable InconsistentNaming
 namespace Adobe.Models.Ranked.Enums
 {
+    using System;
+
+    [Serializable]
     public enum ErrorType
     {
         UNAUTHORIZED_METRIC,

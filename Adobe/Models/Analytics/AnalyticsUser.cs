@@ -1,7 +1,9 @@
 namespace Adobe.Models.Analytics
 {
+    using System;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class AnalyticsUser
     {
         [JsonProperty(PropertyName = "companyid")]

@@ -1,10 +1,12 @@
 namespace Adobe.Models.General
 {
+    using System;
     using System.Collections.Generic;
     using Enums;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    [Serializable]
     public class Column
     {
         /// <summary>

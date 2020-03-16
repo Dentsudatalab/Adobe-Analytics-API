@@ -1,9 +1,12 @@
 namespace Adobe.Models.General
 {
+    using System;
     using Enums;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+    using DayOfWeek = Enums.DayOfWeek;
 
+    [Serializable]
     public class RollingDateFunction
     {
         [JsonProperty(PropertyName = "function")]

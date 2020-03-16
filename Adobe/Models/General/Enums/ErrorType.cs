@@ -1,6 +1,9 @@
 ﻿// ReSharper disable InconsistentNaming
 namespace Adobe.Models.General.Enums
 {
+    using System;
+
+    [Serializable]
     public enum ErrorType
     {
         NO_FEATURE_ACCESS_TO_ADVANCED_CALCULATED_METRICS,

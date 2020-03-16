@@ -1,9 +1,11 @@
 namespace Adobe.Models.Ranked
 {
+    using System;
     using System.Collections.Generic;
     using General;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class RankedReportData
     {
         [JsonProperty(PropertyName = "totalPages")]

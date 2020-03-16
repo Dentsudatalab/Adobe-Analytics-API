@@ -1,9 +1,11 @@
 namespace Adobe.Models.Ranked
 {
+    using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
     using Report;
 
+    [Serializable]
     public class RankedColumnMetaData
     {
         [JsonProperty(PropertyName = "dimension")]

@@ -1,11 +1,13 @@
 namespace Adobe.Models.Analytics
 {
+    using System;
     using System.Collections.Generic;
     using Enums;
     using General;
     using Newtonsoft.Json;
     using Utility;
 
+    [Serializable]
     public class AnalyticsDimension
     {
         public static readonly AnalyticsDimensionFields Fields = new AnalyticsDimensionFields();

@@ -1,10 +1,12 @@
 namespace Adobe.Models.Report
 {
+    using System;
     using System.Collections.Generic;
     using General.Enums;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    [Serializable]
     public class ReportErrorStatus
     {
         /// <summary>

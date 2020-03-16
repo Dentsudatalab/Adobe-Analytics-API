@@ -1,8 +1,10 @@
 namespace Adobe.Models.Report
 {
+    using System;
     using Analytics.Enums;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class ReportDimension
     {
         [JsonProperty(PropertyName = "id")]

@@ -1,7 +1,9 @@
 namespace Adobe.Models.General
 {
+    using System;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class PredictiveSettings
     {
         [JsonProperty(PropertyName = "trainingPeriods")]

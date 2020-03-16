@@ -1,6 +1,9 @@
 ﻿// ReSharper disable InconsistentNaming
 namespace Adobe.Models.General.Enums
 {
+    using System;
+
+    [Serializable]
     public enum DimensionViewType
     {
         LINEAR_ALLOCATION,

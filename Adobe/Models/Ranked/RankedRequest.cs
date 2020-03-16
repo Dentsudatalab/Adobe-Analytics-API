@@ -1,10 +1,12 @@
 namespace Adobe.Models.Ranked
 {
+    using System;
     using System.Collections.Generic;
     using General;
     using Newtonsoft.Json;
     using Report;
 
+    [Serializable]
     public class RankedRequest
     {
         [JsonProperty(PropertyName = "rsid")]

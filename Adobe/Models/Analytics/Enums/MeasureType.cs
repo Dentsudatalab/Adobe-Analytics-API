@@ -4,6 +4,7 @@ namespace Adobe.Models.Analytics.Enums
     using System;
     using Newtonsoft.Json;
 
+    [Serializable]
     public enum MeasureType
     {
         STRING,

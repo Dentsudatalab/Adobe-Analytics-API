@@ -1,11 +1,13 @@
 namespace Adobe.Models.General
 {
+    using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
 
     /// <summary>
     /// Tag Model
     /// </summary>
+    [Serializable]
     public class Tag
     {
         /// <summary>

@@ -1,9 +1,11 @@
 namespace Adobe.Models.General
 {
+    using System;
     using Enums;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    [Serializable]
     public class CalendarType
     {
         [JsonProperty(PropertyName = "rsid")]

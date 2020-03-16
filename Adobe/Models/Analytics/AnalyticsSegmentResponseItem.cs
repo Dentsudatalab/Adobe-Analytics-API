@@ -6,6 +6,7 @@ namespace Adobe.Models.Analytics
     using Newtonsoft.Json;
     using Utility;
 
+    [Serializable]
     public class AnalyticsSegmentResponseItem
     {
         public static readonly AnalyticsSegmentResponseItemFields Fields = new AnalyticsSegmentResponseItemFields();

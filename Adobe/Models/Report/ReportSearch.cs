@@ -1,8 +1,10 @@
 namespace Adobe.Models.Report
 {
+    using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class ReportSearch
     {
         [JsonProperty(PropertyName = "clause")]

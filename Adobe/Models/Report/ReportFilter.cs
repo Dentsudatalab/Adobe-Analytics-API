@@ -1,9 +1,11 @@
 namespace Adobe.Models.Report
 {
+    using System;
     using System.Collections.Generic;
     using Enums;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class ReportFilter
     {
         [JsonProperty(PropertyName = "id")]

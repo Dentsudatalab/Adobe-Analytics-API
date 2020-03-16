@@ -1,9 +1,11 @@
 namespace Adobe.Models.Ranked
 {
+    using System;
     using Enums;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    [Serializable]
     public class RankedColumnError
     {
         [JsonProperty(PropertyName = "columnId")]

@@ -1,11 +1,16 @@
 namespace Adobe.Models.Analytics
 {
-    using System.Collections.Generic;
     using Enums;
+
     using General;
+
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    using System;
+    using System.Collections.Generic;
+
+    [Serializable]
     public class AnalyticsCalculatedMetric
     {
         /// <summary>

@@ -4,6 +4,7 @@ namespace Adobe.Models.Report.Enums
     using System;
     using Newtonsoft.Json;
 
+    [Serializable]
     public enum ReportFilterType
     {
         DATE_RANGE,

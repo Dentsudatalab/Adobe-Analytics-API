@@ -1,10 +1,12 @@
 namespace Adobe.Models.General
 {
+    using System;
     using Enums;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
     using Utility;
 
+    [Serializable]
     public class SuiteCollectionItem
     {
         public static readonly SuiteCollectionItemFields Fields = new SuiteCollectionItemFields();

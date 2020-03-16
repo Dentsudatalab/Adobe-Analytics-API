@@ -1,8 +1,10 @@
 namespace Adobe.Models.Report
 {
+    using System;
     using System.Collections.Generic;
     using Newtonsoft.Json;
 
+    [Serializable]
     public class ReportMetric
     {
         public static ReportMetric Visits => new ReportMetric("metrics/visits");

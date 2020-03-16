@@ -1,5 +1,6 @@
 namespace Adobe.Models.Analytics
 {
+    using System;
     using System.Collections.Generic;
     using Enums;
     using General;
@@ -7,6 +8,7 @@ namespace Adobe.Models.Analytics
     using Newtonsoft.Json.Converters;
     using Utility;
 
+    [Serializable]
     public class AnalyticsMetric
     {
         public static readonly AnalyticsMetricFields Fields = new AnalyticsMetricFields();
