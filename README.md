@@ -1,4 +1,5 @@
 # Adobe Reporting API for .NET
+![Tests](https://github.com/Dentsudatalab/Adobe-Analytics-API/workflows/.NET%20Core/badge.svg)
 
 A .NET project written to make using the Adobe Reporting API easy.
 
