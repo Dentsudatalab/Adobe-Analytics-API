@@ -1,0 +1,66 @@
+name: .NET 2.2 CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Test
+    timeout-minutes: 3
+    if: "!contains(github.event.head_commit.message, 'CI: Skip tests')"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.1.0
+
+      - name: Setup .NET Core SDK & NuGet.config
+        uses: actions/setup-dotnet@v1.4.0
+        with:
+          dotnet-version: 2.2.207
+
+      - name: Install dependencies
+        working-directory: Adobe.Tests
+        run: dotnet restore
+
+      - name: Run tests
+        working-directory: Adobe.Tests
+        run: dotnet test --no-restore --verbosity normal
+
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    timeout-minutes: 3
+    needs: [Test]
+    if: "startsWith(github.event.head_commit.message, 'Deploy:')"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.1.0
+
+      - name: Setup .NET Core SDK & NuGet.config
+        uses: actions/setup-dotnet@v1.4.0
+        with:
+          dotnet-version: 2.2.207
+          source-url: https://nuget.pkg.github.com/dentsudatalab/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ github.token }}
+
+      - name: Get version number & set as env
+        working-directory: Adobe
+        run: echo "::set-env name=VERSION::$(grep -oP '(?<=<Version>).*(?=</Version>)' Adobe.csproj)"
+
+      - name: Build project
+        working-directory: Adobe
+        run: dotnet build --configuration Release
+
+      - name: Pack project
+        working-directory: Adobe
+        run: dotnet pack --configuration Release --no-restore
+
+      - name: Push NuGet package
+        working-directory: Adobe
+        run: dotnet nuget push bin/Release/DentsuDataLab.Adobe.${{ env.VERSION }}.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_AUTH_TOKEN }}
