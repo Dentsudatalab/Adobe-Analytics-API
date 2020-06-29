@@ -16,6 +16,8 @@
   { "name": "Priority: Low", "color": "#31af38" },
 
   { "name": "Status: Abandoned", "color": "#6a737d" },
+  { "name": "Status: Stale", "color": "#6a737d" },
+  { "name": "Status: Discussion Needed", "color": "#ffd33d" },
   { "name": "Status: Accepted", "color": "#31af38" },
   { "name": "Status: Available", "color": "#31af38" },
   { "name": "Status: Blocked", "color": "#24292e" },
