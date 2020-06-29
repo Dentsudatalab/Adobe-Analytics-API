@@ -1,0 +1,36 @@
+name: .NET 2.2 CI
+on:
+  pull_request:
+    branches:
+      - master
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Adobe.Tests
+    timeout-minutes: 3
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2.3.1
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v2.0.0
+        with:
+          path: ~/.nuget/packages # Mac/Linux
+          key: ${{ hashFiles('*/*.csproj') }}
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1.5.0
+        with:
+          dotnet-version: 2.2.x
+
+      - name: Run tests
+        run: dotnet test --verbosity normal
