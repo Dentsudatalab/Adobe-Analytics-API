@@ -2,6 +2,7 @@
 namespace Adobe.Models.Report.Enums
 {
     using System;
+
     using Newtonsoft.Json;
 
     [Serializable]
@@ -24,25 +25,36 @@ namespace Adobe.Models.Report.Enums
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var convertedValue = value is ReportFilterType type ? type : ReportFilterType.DATE_RANGE;
+            var convertedValue = value is ReportFilterType type
+                ? type
+                : ReportFilterType.DATE_RANGE;
 
             switch (convertedValue)
             {
                 case ReportFilterType.DATE_RANGE:
                     writer.WriteValue("dateRange");
+
                     break;
 
                 case ReportFilterType.EXCLUDE_ITEM_IDS:
                     writer.WriteValue("excludeItemIds");
+
                     break;
 
                 default:
-                    writer.WriteValue(convertedValue.ToString().ToLowerInvariant());
+                    writer.WriteValue(
+                        convertedValue.ToString()
+                            .ToLowerInvariant());
+
                     break;
             }
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(
+            JsonReader reader,
+            Type objectType,
+            object existingValue,
+            JsonSerializer serializer)
         {
             var type = reader.Value as string ?? string.Empty;
 
@@ -56,7 +68,10 @@ namespace Adobe.Models.Report.Enums
 
                 default:
                     var isParsed = Enum.TryParse(type, out ReportFilterType parsed);
-                    return isParsed ? parsed : ReportFilterType.DATE_RANGE;
+
+                    return isParsed
+                        ? parsed
+                        : ReportFilterType.DATE_RANGE;
             }
         }
     }

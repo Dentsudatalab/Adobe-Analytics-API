@@ -5,9 +5,13 @@
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
+
     using Authorization;
+
     using Extensions;
+
     using Models;
+
     using Utility;
     using Utility.Auth;
 
@@ -40,7 +44,8 @@
         {
             var client = await AuthService.AuthorizeClient(authValues);
 
-            HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", client.AccessToken);
+            HttpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", client.AccessToken);
 
             HttpClient.DefaultRequestHeaders.Set("x-proxy-global-company-id", authValues.CompanyId);
             HttpClient.DefaultRequestHeaders.Set("x-api-key", authValues.ClientId);
@@ -52,6 +57,7 @@
 
             var page = 0;
             ApiResponse<AdobeRowResponse<TItem>> response;
+
             do
             {
                 var uri = query
@@ -67,6 +73,7 @@
                 items.AddRange(response.Value.Content);
                 page++;
             } while (response.Value.TotalElements > 0 && !response.Value.LastPage);
+
 
             return items;
         }

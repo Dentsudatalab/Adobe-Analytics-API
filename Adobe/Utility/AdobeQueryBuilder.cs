@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Web;
+
     using Extensions;
 
     public class AdobeQueryBuilder
@@ -76,17 +77,14 @@
                 query["expansion"] = fieldString;
             }
 
+
             // Report suite ID
             if (!string.IsNullOrEmpty(_reportSuiteId))
-            {
                 query["rsid"] = _reportSuiteId;
-            }
 
             // Custom params
             foreach (var (key, value) in _customParams)
-            {
                 query[key] = value;
-            }
 
             uriBuilder.Query = query.ToString();
 

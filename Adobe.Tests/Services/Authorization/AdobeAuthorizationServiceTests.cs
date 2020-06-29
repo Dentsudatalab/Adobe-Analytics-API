@@ -1,6 +1,9 @@
 using Adobe.Services.Authorization;
+
 using Moq;
+
 using NUnit.Framework;
+
 using System;
 using System.Threading.Tasks;
 
@@ -129,7 +132,7 @@ namespace Adobe.Tests.Services.Authorization
                 .SetupGet(e => e.Client)
                 .Returns((IdentityClient)null);
 
-            var service = this.CreateService();
+            var service = CreateService();
 
             // Assert
             Assert.Throws<InvalidOperationException>(() => service.GetClient(null));

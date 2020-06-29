@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
+
     using Models.Analytics;
     using Models.General;
     using Models.Ranked;
@@ -38,12 +39,14 @@
         public ReportRequestBuilder WithReportSuiteId(string id)
         {
             Rsid = id;
+
             return this;
         }
 
         public ReportRequestBuilder WithFilter(ReportFilter filter)
         {
             _reportFilters.Add(filter);
+
             return this;
         }
 
@@ -61,6 +64,7 @@
         public ReportRequestBuilder WithDimension(AnalyticsDimension dimension)
         {
             Dimension = dimension.Id;
+
             return this;
         }
 
@@ -73,30 +77,34 @@
             };
 
             _metrics.Add(reportMetric);
+
             return this;
         }
 
         public ReportRequestBuilder WithMetrics(IEnumerable<AnalyticsMetric> metrics)
         {
             foreach (var metric in metrics)
-            {
                 WithMetric(metric);
-            }
 
             return this;
         }
 
-        public ReportRequestBuilder WithMetrics(params AnalyticsMetric[] metrics) => WithMetrics(metrics.AsEnumerable());
+        public ReportRequestBuilder WithMetrics(params AnalyticsMetric[] metrics)
+        {
+            return WithMetrics(metrics.AsEnumerable());
+        }
 
         public ReportRequestBuilder WithLocale(Locale locale)
         {
             Locale = locale;
+
             return this;
         }
 
         public ReportRequestBuilder WithSettings(RankedSettings settings)
         {
             Settings = settings;
+
             return this;
         }
 
@@ -117,9 +125,13 @@
             };
 
             reportRequest.GlobalFilters.Add(_dateRangeFilter);
+
             return reportRequest;
         }
 
-        private static string FormatDateTime(DateTime date) => date.ToString("yyyy-MM-ddTHH:mm", CultureInfo.InvariantCulture);
+        private static string FormatDateTime(DateTime date)
+        {
+            return date.ToString("yyyy-MM-ddTHH:mm", CultureInfo.InvariantCulture);
+        }
     }
 }

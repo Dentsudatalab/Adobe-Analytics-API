@@ -2,6 +2,7 @@
 {
     using System;
     using System.Text;
+
     using Newtonsoft.Json;
 
     [Serializable]
@@ -46,6 +47,7 @@
             var splitIdentity = IdToken.Split('.');
 
             var id = JsonConvert.DeserializeObject<IdentityId>(Decode(splitIdentity[1]));
+
             return id;
         }
 
@@ -55,6 +57,7 @@
                 input += "=";
 
             var converted = Convert.FromBase64String(input);
+
             return Encoding.UTF8.GetString(converted);
         }
     }

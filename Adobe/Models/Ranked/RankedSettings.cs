@@ -1,6 +1,7 @@
 namespace Adobe.Models.Ranked
 {
     using System;
+
     using Newtonsoft.Json;
 
     [Serializable]

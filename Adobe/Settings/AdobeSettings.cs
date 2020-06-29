@@ -1,6 +1,7 @@
 ﻿namespace Adobe.Settings
 {
     using System;
+
     using Microsoft.Extensions.Caching.Memory;
 
     public class AdobeSettings

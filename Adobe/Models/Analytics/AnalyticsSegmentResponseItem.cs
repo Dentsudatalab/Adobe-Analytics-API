@@ -2,8 +2,11 @@ namespace Adobe.Models.Analytics
 {
     using System;
     using System.Collections.Generic;
+
     using General;
+
     using Newtonsoft.Json;
+
     using Utility;
 
     [Serializable]
@@ -86,7 +89,11 @@ namespace Adobe.Models.Analytics
 
         protected bool Equals(AnalyticsSegmentResponseItem other)
         {
-            return Id == other.Id && Name == other.Name && Description == other.Description && Rsid == other.Rsid && ReportSuiteName == other.ReportSuiteName && Equals(Owner, other.Owner) && Nullable.Equals(DefinitionLastModified, other.DefinitionLastModified) && SiteTitle == other.SiteTitle && Nullable.Equals(Modified, other.Modified) && Nullable.Equals(Created, other.Created);
+            return Id == other.Id && Name == other.Name && Description == other.Description && Rsid == other.Rsid &&
+                   ReportSuiteName == other.ReportSuiteName && Equals(Owner, other.Owner) &&
+                   Nullable.Equals(DefinitionLastModified, other.DefinitionLastModified) &&
+                   SiteTitle == other.SiteTitle && Nullable.Equals(Modified, other.Modified) &&
+                   Nullable.Equals(Created, other.Created);
         }
 
         public override bool Equals(object obj)
@@ -94,6 +101,7 @@ namespace Adobe.Models.Analytics
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
+
             return Equals((AnalyticsSegmentResponseItem)obj);
         }
 
@@ -101,16 +109,31 @@ namespace Adobe.Models.Analytics
         {
             unchecked
             {
-                var hashCode = (Id != null ? Id.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Description != null ? Description.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Rsid != null ? Rsid.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (ReportSuiteName != null ? ReportSuiteName.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Owner != null ? Owner.GetHashCode() : 0);
+                var hashCode = Id != null
+                    ? Id.GetHashCode()
+                    : 0;
+                hashCode = (hashCode * 397) ^ (Name != null
+                    ? Name.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (Description != null
+                    ? Description.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (Rsid != null
+                    ? Rsid.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (ReportSuiteName != null
+                    ? ReportSuiteName.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (Owner != null
+                    ? Owner.GetHashCode()
+                    : 0);
                 hashCode = (hashCode * 397) ^ DefinitionLastModified.GetHashCode();
-                hashCode = (hashCode * 397) ^ (SiteTitle != null ? SiteTitle.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (SiteTitle != null
+                    ? SiteTitle.GetHashCode()
+                    : 0);
                 hashCode = (hashCode * 397) ^ Modified.GetHashCode();
                 hashCode = (hashCode * 397) ^ Created.GetHashCode();
+
                 return hashCode;
             }
         }

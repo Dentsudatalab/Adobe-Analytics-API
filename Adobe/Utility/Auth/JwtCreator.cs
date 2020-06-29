@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
     using System.Security.Cryptography;
+
     using Org.BouncyCastle.Crypto.Parameters;
     using Org.BouncyCastle.OpenSsl;
     using Org.BouncyCastle.Security;
@@ -27,14 +28,15 @@
 
             var payload = new Dictionary<string, object>
             {
-                { "exp", expUnix },
-                { "iss", authValues.OrganizationId },
-                { "sub", authValues.TechnicalAccountId },
-                { "https://ims-na1.adobelogin.com/s/ent_analytics_bulk_ingest_sdk", true },
-                { "aud", $"https://ims-na1.adobelogin.com/c/{authValues.ClientId}" }
+                {"exp", expUnix},
+                {"iss", authValues.OrganizationId},
+                {"sub", authValues.TechnicalAccountId},
+                {"https://ims-na1.adobelogin.com/s/ent_analytics_bulk_ingest_sdk", true},
+                {"aud", $"https://ims-na1.adobelogin.com/c/{authValues.ClientId}"}
             };
 
             RSAParameters rsaParams;
+
             using (var tr = new StringReader(authValues.PrivateKey))
             {
                 var pemReader = new PemReader(tr);
@@ -45,9 +47,11 @@
                 rsaParams = DotNetUtilities.ToRSAParameters(keyPair);
             }
 
+
             using (var rsa = new RSACryptoServiceProvider())
             {
                 rsa.ImportParameters(rsaParams);
+
                 return Jose.JWT.Encode(payload, rsa, Jose.JwsAlgorithm.RS256);
             }
         }

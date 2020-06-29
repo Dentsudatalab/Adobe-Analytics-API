@@ -3,14 +3,20 @@
     using System;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Authorization;
+
     using Extensions;
+
     using Models.Ranked;
+
     using Utility;
 
     public class ReportService : BaseAdobeService
     {
-        public ReportService(HttpClient httpClient, AdobeAuthorizationService authService) : base(httpClient, authService)
+        public ReportService(HttpClient httpClient, AdobeAuthorizationService authService) : base(
+            httpClient,
+            authService)
         {
         }
 

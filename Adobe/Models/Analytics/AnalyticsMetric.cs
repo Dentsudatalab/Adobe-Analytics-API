@@ -2,10 +2,14 @@ namespace Adobe.Models.Analytics
 {
     using System;
     using System.Collections.Generic;
+
     using Enums;
+
     using General;
+
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+
     using Utility;
 
     [Serializable]
@@ -75,7 +79,11 @@ namespace Adobe.Models.Analytics
 
         protected bool Equals(AnalyticsMetric other)
         {
-            return Id == other.Id && Title == other.Title && Name == other.Name && Type == other.Type && ExtraTitleInfo == other.ExtraTitleInfo && Category == other.Category && Allocation == other.Allocation && Precision == other.Precision && Calculated == other.Calculated && Segmentable == other.Segmentable && Description == other.Description && Polarity == other.Polarity && HelpLink == other.HelpLink && AllowedForReporting == other.AllowedForReporting;
+            return Id == other.Id && Title == other.Title && Name == other.Name && Type == other.Type &&
+                   ExtraTitleInfo == other.ExtraTitleInfo && Category == other.Category &&
+                   Allocation == other.Allocation && Precision == other.Precision && Calculated == other.Calculated &&
+                   Segmentable == other.Segmentable && Description == other.Description && Polarity == other.Polarity &&
+                   HelpLink == other.HelpLink && AllowedForReporting == other.AllowedForReporting;
         }
 
         public override bool Equals(object obj)
@@ -83,6 +91,7 @@ namespace Adobe.Models.Analytics
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
+
             return Equals((AnalyticsMetric)obj);
         }
 
@@ -90,20 +99,35 @@ namespace Adobe.Models.Analytics
         {
             unchecked
             {
-                var hashCode = (Id != null ? Id.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Title != null ? Title.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
+                var hashCode = Id != null
+                    ? Id.GetHashCode()
+                    : 0;
+                hashCode = (hashCode * 397) ^ (Title != null
+                    ? Title.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (Name != null
+                    ? Name.GetHashCode()
+                    : 0);
                 hashCode = (hashCode * 397) ^ (int)Type;
-                hashCode = (hashCode * 397) ^ (ExtraTitleInfo != null ? ExtraTitleInfo.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Category != null ? Category.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (ExtraTitleInfo != null
+                    ? ExtraTitleInfo.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (Category != null
+                    ? Category.GetHashCode()
+                    : 0);
                 hashCode = (hashCode * 397) ^ Allocation.GetHashCode();
                 hashCode = (hashCode * 397) ^ Precision.GetHashCode();
                 hashCode = (hashCode * 397) ^ Calculated.GetHashCode();
                 hashCode = (hashCode * 397) ^ Segmentable.GetHashCode();
-                hashCode = (hashCode * 397) ^ (Description != null ? Description.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Description != null
+                    ? Description.GetHashCode()
+                    : 0);
                 hashCode = (hashCode * 397) ^ (int)Polarity;
-                hashCode = (hashCode * 397) ^ (HelpLink != null ? HelpLink.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (HelpLink != null
+                    ? HelpLink.GetHashCode()
+                    : 0);
                 hashCode = (hashCode * 397) ^ AllowedForReporting.GetHashCode();
+
                 return hashCode;
             }
         }

@@ -4,14 +4,20 @@
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Authorization;
+
     using Extensions;
+
     using Models.Analytics;
+
     using Utility;
 
     public class SegmentService : BaseAdobeService
     {
-        public SegmentService(HttpClient httpClient, AdobeAuthorizationService authService) : base(httpClient, authService)
+        public SegmentService(HttpClient httpClient, AdobeAuthorizationService authService) : base(
+            httpClient,
+            authService)
         {
         }
 
@@ -68,7 +74,10 @@
         /// <param name="fields">The fields to include from response.</param>
         /// <param name="locale">Locale.</param>
         /// <returns>The created segment.</returns>
-        public virtual async Task<AnalyticsSegmentResponseItem> CreateSegment(AnalyticsSegmentResponseItem segment, IEnumerable<Field> fields, string locale = "en_US")
+        public virtual async Task<AnalyticsSegmentResponseItem> CreateSegment(
+            AnalyticsSegmentResponseItem segment,
+            IEnumerable<Field> fields,
+            string locale = "en_US")
         {
             await AuthorizeClient(AuthValues);
 
@@ -93,7 +102,10 @@
         /// <param name="fields">The fields to include from response.</param>
         /// <param name="locale">Locale.</param>
         /// <returns>The updated segment.</returns>
-        public async Task<AnalyticsSegmentResponseItem> UpdateSegment(AnalyticsSegmentResponseItem segment, IEnumerable<Field> fields, string locale = "en_US")
+        public async Task<AnalyticsSegmentResponseItem> UpdateSegment(
+            AnalyticsSegmentResponseItem segment,
+            IEnumerable<Field> fields,
+            string locale = "en_US")
         {
             await AuthorizeClient(AuthValues);
 
@@ -117,7 +129,9 @@
         /// <param name="segmentId">The ID of the segment to delete.</param>
         /// <param name="locale">Locale.</param>
         /// <returns>The result of the delete action.</returns>
-        public virtual async Task<AnalyticsSegmentDeleteResponse> DeleteSegment(string segmentId, string locale = "en_US")
+        public virtual async Task<AnalyticsSegmentDeleteResponse> DeleteSegment(
+            string segmentId,
+            string locale = "en_US")
         {
             await AuthorizeClient(AuthValues);
 

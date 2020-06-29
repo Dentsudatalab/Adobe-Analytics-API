@@ -1,6 +1,7 @@
 namespace Adobe.Models.Report
 {
     using System;
+
     using Newtonsoft.Json;
 
     [Serializable]

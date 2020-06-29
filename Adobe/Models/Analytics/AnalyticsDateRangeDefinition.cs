@@ -2,7 +2,9 @@ namespace Adobe.Models.Analytics
 {
     using System;
     using System.Collections.Generic;
+
     using General;
+
     using Newtonsoft.Json;
 
     [Serializable]

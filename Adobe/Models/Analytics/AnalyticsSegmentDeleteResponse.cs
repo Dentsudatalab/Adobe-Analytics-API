@@ -1,6 +1,7 @@
 ﻿namespace Adobe.Models.Analytics
 {
     using System;
+
     using Newtonsoft.Json;
 
     [Serializable]

@@ -3,14 +3,20 @@
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Authorization;
+
     using Extensions;
+
     using Models.Analytics;
+
     using Utility;
 
     public class MetricService : BaseAdobeService
     {
-        public MetricService(HttpClient httpClient, AdobeAuthorizationService authService) : base(httpClient, authService)
+        public MetricService(HttpClient httpClient, AdobeAuthorizationService authService) : base(
+            httpClient,
+            authService)
         {
         }
 
@@ -22,7 +28,11 @@
         /// <param name="locale">Locale that system named metrics should be returned in</param>
         /// <param name="segmentable">Filter the metrics by if they are valid in a segment.</param>
         /// <returns>A list of metrics for the given report suite.</returns>
-        public virtual async Task<IEnumerable<AnalyticsMetric>> GetMetrics(string reportSuiteId, IEnumerable<Field> fields, string locale = "en_US", bool segmentable = false)
+        public virtual async Task<IEnumerable<AnalyticsMetric>> GetMetrics(
+            string reportSuiteId,
+            IEnumerable<Field> fields,
+            string locale = "en_US",
+            bool segmentable = false)
         {
             await AuthorizeClient(AuthValues);
 

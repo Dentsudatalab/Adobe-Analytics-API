@@ -1,8 +1,10 @@
 namespace Adobe.Tests.Utility
 {
     using System;
+
     using Adobe.Models.Analytics;
     using Adobe.Utility;
+
     using NUnit.Framework;
 
     [TestFixture]

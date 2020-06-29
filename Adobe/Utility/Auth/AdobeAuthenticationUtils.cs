@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Extensions;
 
     public static class AdobeAuthenticationUtils
@@ -20,12 +21,13 @@
             {
                 var requestParams = new Dictionary<string, string>
                 {
-                    { "client_id", authValues.ClientId },
-                    { "client_secret", authValues.ClientSecret },
-                    { "jwt_token", authValues.Jwt }
+                    {"client_id", authValues.ClientId},
+                    {"client_secret", authValues.ClientSecret},
+                    {"jwt_token", authValues.Jwt}
                 };
 
                 var result = await client.PostFormResponse<IdentityClient>(ExchangeJwtUrl, requestParams);
+
                 return result;
             }
         }

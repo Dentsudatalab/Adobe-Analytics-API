@@ -1,6 +1,9 @@
 using Adobe.Extensions;
+
 using Moq;
+
 using NUnit.Framework;
+
 using System;
 
 namespace Adobe.Tests.Extensions

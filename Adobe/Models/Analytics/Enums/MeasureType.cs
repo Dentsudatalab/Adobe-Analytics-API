@@ -2,6 +2,7 @@
 namespace Adobe.Models.Analytics.Enums
 {
     using System;
+
     using Newtonsoft.Json;
 
     [Serializable]
@@ -28,21 +29,31 @@ namespace Adobe.Models.Analytics.Enums
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var convertedValue = value is MeasureType type ? type : MeasureType.STRING;
+            var convertedValue = value is MeasureType type
+                ? type
+                : MeasureType.STRING;
 
             switch (convertedValue)
             {
                 case MeasureType.ORDERED_ENUM:
                     writer.WriteValue("ordered-enum");
+
                     break;
 
                 default:
-                    writer.WriteValue(convertedValue.ToString().ToLowerInvariant());
+                    writer.WriteValue(
+                        convertedValue.ToString()
+                            .ToLowerInvariant());
+
                     break;
             }
         }
 
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(
+            JsonReader reader,
+            Type objectType,
+            object existingValue,
+            JsonSerializer serializer)
         {
             var type = reader.Value as string ?? string.Empty;
 
@@ -53,7 +64,10 @@ namespace Adobe.Models.Analytics.Enums
 
                 default:
                     var isParsed = Enum.TryParse(type, out MeasureType parsed);
-                    return isParsed ? parsed : MeasureType.STRING;
+
+                    return isParsed
+                        ? parsed
+                        : MeasureType.STRING;
             }
         }
     }

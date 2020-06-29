@@ -3,12 +3,16 @@ namespace Adobe.Tests.Services.Endpoints
     using System;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Adobe.Models.Analytics;
     using Adobe.Services.Authorization;
     using Adobe.Services.Endpoints;
     using Adobe.Utility.Auth;
+
     using Moq;
+
     using NUnit.Framework;
+
     using RichardSzalay.MockHttp;
 
     [TestFixture]
@@ -24,9 +28,9 @@ namespace Adobe.Tests.Services.Endpoints
         [SetUp]
         public void SetUp()
         {
-            this._mockRepository = new MockRepository(MockBehavior.Loose);
+            _mockRepository = new MockRepository(MockBehavior.Loose);
 
-            this._mockAdobeAuthorizationService = this._mockRepository.Create<AdobeAuthorizationService>(null);
+            _mockAdobeAuthorizationService = _mockRepository.Create<AdobeAuthorizationService>(null);
             _mockHttpClient = _mockRepository.Create<MoqMessageHandler>();
             _mockHttpClient.CallBase = true;
 
@@ -44,7 +48,7 @@ namespace Adobe.Tests.Services.Endpoints
         {
             var service = new MetricService(
                 _mockHttpClient.Object.ToHttpClient(),
-                this._mockAdobeAuthorizationService.Object);
+                _mockAdobeAuthorizationService.Object);
             service.SetAuthValues(_authValues);
 
             return service;
@@ -63,10 +67,13 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "[]");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsMetric.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsMetric.Fields.Categories
+            };
 
             // Act
             var result = await service.GetMetrics(rsid, fields, locale);
@@ -95,10 +102,13 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "[]");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsMetric.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsMetric.Fields.Categories
+            };
 
             // Act
             var result = await service.GetMetrics(rsid, fields, locale, true);
@@ -127,11 +137,14 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "{}");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string metric = "my_metric";
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsMetric.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsMetric.Fields.Categories
+            };
 
             // Act
             var result = await service.GetMetricById(metric, rsid, fields, locale);
@@ -160,12 +173,15 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "{}");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string metric = "metrics/my_metric";
             const string trimmedMetric = "my_metric";
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsDimension.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsDimension.Fields.Categories
+            };
 
             // Act
             var result = await service.GetMetricById(metric, rsid, fields, locale);

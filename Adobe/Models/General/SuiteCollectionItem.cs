@@ -1,9 +1,12 @@
 namespace Adobe.Models.General
 {
     using System;
+
     using Enums;
+
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
+
     using Utility;
 
     [Serializable]
@@ -45,7 +48,8 @@ namespace Adobe.Models.General
 
         protected bool Equals(SuiteCollectionItem other)
         {
-            return Name == other.Name && TimezoneZoneInfo == other.TimezoneZoneInfo && ParentRsid == other.ParentRsid && CollectionItemType == other.CollectionItemType && Currency == other.Currency && Rsid == other.Rsid;
+            return Name == other.Name && TimezoneZoneInfo == other.TimezoneZoneInfo && ParentRsid == other.ParentRsid &&
+                   CollectionItemType == other.CollectionItemType && Currency == other.Currency && Rsid == other.Rsid;
         }
 
         public override bool Equals(object obj)
@@ -53,6 +57,7 @@ namespace Adobe.Models.General
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != this.GetType()) return false;
+
             return Equals((SuiteCollectionItem)obj);
         }
 
@@ -60,12 +65,23 @@ namespace Adobe.Models.General
         {
             unchecked
             {
-                var hashCode = (Name != null ? Name.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (TimezoneZoneInfo != null ? TimezoneZoneInfo.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (ParentRsid != null ? ParentRsid.GetHashCode() : 0);
+                var hashCode = Name != null
+                    ? Name.GetHashCode()
+                    : 0;
+                hashCode = (hashCode * 397) ^ (TimezoneZoneInfo != null
+                    ? TimezoneZoneInfo.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (ParentRsid != null
+                    ? ParentRsid.GetHashCode()
+                    : 0);
                 hashCode = (hashCode * 397) ^ (int)CollectionItemType;
-                hashCode = (hashCode * 397) ^ (Currency != null ? Currency.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ (Rsid != null ? Rsid.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Currency != null
+                    ? Currency.GetHashCode()
+                    : 0);
+                hashCode = (hashCode * 397) ^ (Rsid != null
+                    ? Rsid.GetHashCode()
+                    : 0);
+
                 return hashCode;
             }
         }

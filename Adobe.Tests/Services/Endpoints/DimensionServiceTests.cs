@@ -5,14 +5,18 @@ namespace Adobe.Tests.Services.Endpoints
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Adobe.Extensions;
     using Adobe.Models.Analytics;
     using Adobe.Services.Authorization;
     using Adobe.Services.Endpoints;
     using Adobe.Utility;
     using Adobe.Utility.Auth;
+
     using Moq;
+
     using NUnit.Framework;
+
     using RichardSzalay.MockHttp;
 
     [TestFixture]
@@ -28,9 +32,9 @@ namespace Adobe.Tests.Services.Endpoints
         [SetUp]
         public void SetUp()
         {
-            this._mockRepository = new MockRepository(MockBehavior.Loose);
+            _mockRepository = new MockRepository(MockBehavior.Loose);
 
-            this._mockAdobeAuthorizationService = this._mockRepository.Create<AdobeAuthorizationService>(null);
+            _mockAdobeAuthorizationService = _mockRepository.Create<AdobeAuthorizationService>(null);
             _mockHttpClient = _mockRepository.Create<MoqMessageHandler>();
             _mockHttpClient.CallBase = true;
 
@@ -48,7 +52,7 @@ namespace Adobe.Tests.Services.Endpoints
         {
             var service = new DimensionService(
                 _mockHttpClient.Object.ToHttpClient(),
-                this._mockAdobeAuthorizationService.Object);
+                _mockAdobeAuthorizationService.Object);
             service.SetAuthValues(_authValues);
 
             return service;
@@ -67,10 +71,13 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "[]");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsDimension.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsDimension.Fields.Categories
+            };
 
             // Act
             var result = await service.GetDimensions(rsid, fields, locale);
@@ -99,10 +106,13 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "[]");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsDimension.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsDimension.Fields.Categories
+            };
 
             // Act
             var result = await service.GetDimensions(rsid, fields, locale, true, true, true);
@@ -111,7 +121,8 @@ namespace Adobe.Tests.Services.Endpoints
             var expectedPath = $"/api/{_authValues.CompanyId}/dimensions";
             var path = calledUri.AbsolutePath;
 
-            var expectedQuery = $"?expansion=categories&rsid={rsid}&locale={locale}&segmentable=true&reportable=true&classifiable=true";
+            var expectedQuery =
+                $"?expansion=categories&rsid={rsid}&locale={locale}&segmentable=true&reportable=true&classifiable=true";
             var query = calledUri.Query;
 
             Assert.That(path, Is.EqualTo(expectedPath));
@@ -131,11 +142,14 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "{}");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string dimension = "my_dimension";
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsDimension.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsDimension.Fields.Categories
+            };
 
             // Act
             var result = await service.GetDimensionById(dimension, rsid, fields, locale);
@@ -164,12 +178,15 @@ namespace Adobe.Tests.Services.Endpoints
                 .When("*")
                 .Respond("application/json", "{}");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string dimension = "variables/my_dimension";
             const string trimmedDimension = "my_dimension";
             const string rsid = "rsid";
             const string locale = "en_US";
-            var fields = new[] { AnalyticsDimension.Fields.Categories };
+            var fields = new[]
+            {
+                AnalyticsDimension.Fields.Categories
+            };
 
             // Act
             var result = await service.GetDimensionById(dimension, rsid, fields, locale);

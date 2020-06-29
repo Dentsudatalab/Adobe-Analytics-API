@@ -14,7 +14,10 @@
         private readonly DistributedCacheEntryOptions _options;
         private readonly object _lockObject;
 
-        public AdobeDistributedClientStore(IDistributedCache cache, DistributedCacheEntryOptions options, string cacheKey)
+        public AdobeDistributedClientStore(
+            IDistributedCache cache,
+            DistributedCacheEntryOptions options,
+            string cacheKey)
         {
             _cache = cache;
             _cacheKey = cacheKey;
@@ -29,12 +32,12 @@
                 lock (_lockObject)
                 {
                     var bytes = _cache.Get(_cacheKey);
+
                     if (bytes == null)
-                    {
                         return null;
-                    }
 
                     var binaryFormatter = new BinaryFormatter();
+
                     using (var memoryStream = new MemoryStream(bytes))
                     {
                         return binaryFormatter.Deserialize(memoryStream) as IdentityClient;
@@ -49,6 +52,7 @@
                         return;
 
                     var binaryFormatter = new BinaryFormatter();
+
                     using (var memoryStream = new MemoryStream())
                     {
                         binaryFormatter.Serialize(memoryStream, value);

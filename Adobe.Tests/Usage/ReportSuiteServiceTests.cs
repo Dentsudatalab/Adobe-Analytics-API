@@ -3,13 +3,17 @@
     using System;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Adobe.Models.Analytics;
     using Adobe.Models.General;
     using Adobe.Services.Authorization;
     using Adobe.Services.Endpoints;
     using Adobe.Utility.Auth;
+
     using Moq;
+
     using NUnit.Framework;
+
     using RichardSzalay.MockHttp;
 
     [TestFixture]
@@ -25,9 +29,9 @@
         [SetUp]
         public void SetUp()
         {
-            this._mockRepository = new MockRepository(MockBehavior.Loose);
+            _mockRepository = new MockRepository(MockBehavior.Loose);
 
-            this._mockAdobeAuthorizationService = this._mockRepository.Create<AdobeAuthorizationService>(null);
+            _mockAdobeAuthorizationService = _mockRepository.Create<AdobeAuthorizationService>(null);
             _mockHttpClient = _mockRepository.Create<MoqMessageHandler>();
             _mockHttpClient.CallBase = true;
 
@@ -45,7 +49,7 @@
         {
             var service = new ReportSuiteService(
                 _mockHttpClient.Object.ToHttpClient(),
-                this._mockAdobeAuthorizationService.Object);
+                _mockAdobeAuthorizationService.Object);
             service.SetAuthValues(_authValues);
 
             return service;
@@ -64,8 +68,11 @@
                 .When("*")
                 .Respond("application/json", "{\"content\": [], \"totalElements\": 0}");
 
-            var service = this.CreateService();
-            var fields = new[] { SuiteCollectionItem.Fields.Name };
+            var service = CreateService();
+            var fields = new[]
+            {
+                SuiteCollectionItem.Fields.Name
+            };
 
             // Act
             var result = await service.GetReportSuites(fields);
@@ -94,9 +101,15 @@
                 .When("*")
                 .Respond("application/json", "{\"content\": [], \"totalElements\": 0}");
 
-            var service = this.CreateService();
-            var fields = new[] { SuiteCollectionItem.Fields.Name };
-            var rsids = new[] { "123,321" };
+            var service = CreateService();
+            var fields = new[]
+            {
+                SuiteCollectionItem.Fields.Name
+            };
+            var rsids = new[]
+            {
+                "123,321"
+            };
 
             // Act
             var result = await service.GetReportSuites(fields, rsids);
@@ -125,8 +138,11 @@
                 .When("*")
                 .Respond("application/json", "{\"content\": [], \"totalElements\": 0}");
 
-            var service = this.CreateService();
-            var fields = new[] { SuiteCollectionItem.Fields.Name };
+            var service = CreateService();
+            var fields = new[]
+            {
+                SuiteCollectionItem.Fields.Name
+            };
             var rsidsContains = "123";
 
             // Act
@@ -161,8 +177,11 @@
                 .WithQueryString("page", "1")
                 .Respond("application/json", "{\"content\": [], \"totalElements\": 1500, \"lastPage\": true}");
 
-            var service = this.CreateService();
-            var fields = new[] { SuiteCollectionItem.Fields.Name };
+            var service = CreateService();
+            var fields = new[]
+            {
+                SuiteCollectionItem.Fields.Name
+            };
 
             // Act
             var result = await service.GetReportSuites(fields);
@@ -191,9 +210,12 @@
                 .When("*")
                 .Respond("application/json", "{}");
 
-            var service = this.CreateService();
+            var service = CreateService();
             const string rsid = "rsid";
-            var fields = new[] { SuiteCollectionItem.Fields.Name };
+            var fields = new[]
+            {
+                SuiteCollectionItem.Fields.Name
+            };
 
             // Act
             var result = await service.GetReportSuiteById(rsid, fields);

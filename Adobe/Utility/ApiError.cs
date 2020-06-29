@@ -13,7 +13,11 @@
         [JsonProperty("errorDescription")]
         private string ErrorDescription
         {
-            set => Messages = new[] { value };
+            set =>
+                Messages = new[]
+                {
+                    value
+                };
         }
 
         [JsonProperty("errorCode")]

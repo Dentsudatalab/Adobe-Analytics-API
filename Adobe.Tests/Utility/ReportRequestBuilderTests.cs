@@ -2,11 +2,13 @@ namespace Adobe.Tests.Utility
 {
     using System;
     using System.Linq;
+
     using Adobe.Models.Analytics;
     using Adobe.Models.General;
     using Adobe.Models.Ranked;
     using Adobe.Models.Report;
     using Adobe.Utility;
+
     using NUnit.Framework;
 
     [TestFixture]
@@ -105,8 +107,14 @@ namespace Adobe.Tests.Utility
 
             // Assert
             Assert.That(result.MetricContainer.Metrics.Count, Is.EqualTo(1));
-            Assert.That(result.MetricContainer.Metrics, Is.All.Property("Id").EqualTo(metric.Id));
-            Assert.That(result.MetricContainer.Metrics, Is.All.Property("ColumnId").EqualTo(metric.Id));
+            Assert.That(
+                result.MetricContainer.Metrics,
+                Is.All.Property("Id")
+                    .EqualTo(metric.Id));
+            Assert.That(
+                result.MetricContainer.Metrics,
+                Is.All.Property("ColumnId")
+                    .EqualTo(metric.Id));
         }
 
         [Test]

@@ -1,6 +1,7 @@
 ﻿namespace Adobe.Tests.Models.Fields
 {
     using Adobe.Models.Analytics;
+
     using NUnit.Framework;
 
     [TestFixture]

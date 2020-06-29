@@ -4,10 +4,14 @@
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Authorization;
+
     using Extensions;
+
     using Models;
     using Models.Analytics;
+
     using Utility;
 
     public class UserService : BaseAdobeService

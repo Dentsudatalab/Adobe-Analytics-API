@@ -5,15 +5,21 @@
     using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Authorization;
+
     using Extensions;
+
     using Models;
     using Models.General;
+
     using Utility;
 
     public class ReportSuiteService : BaseAdobeService
     {
-        public ReportSuiteService(HttpClient httpClient, AdobeAuthorizationService authService) : base(httpClient, authService)
+        public ReportSuiteService(HttpClient httpClient, AdobeAuthorizationService authService) : base(
+            httpClient,
+            authService)
         {
         }
 
@@ -24,7 +30,10 @@
         /// <param name="rsids">Filter list to only include suites in this RSID list.</param>
         /// <param name="rsidContains">Filter list to only include suites whose rsid contains rsidContains.</param>
         /// <returns>A list of report suites.</returns>
-        public async Task<IEnumerable<SuiteCollectionItem>> GetReportSuites(IEnumerable<Field> fields, IEnumerable<string> rsids = null, string rsidContains = null)
+        public async Task<IEnumerable<SuiteCollectionItem>> GetReportSuites(
+            IEnumerable<Field> fields,
+            IEnumerable<string> rsids = null,
+            string rsidContains = null)
         {
             await AuthorizeClient(AuthValues);
 

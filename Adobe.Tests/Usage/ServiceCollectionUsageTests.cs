@@ -1,14 +1,19 @@
 ﻿namespace Adobe.Tests.Usage
 {
     using System;
+
     using Adobe.Extensions;
     using Adobe.Services.Authorization;
     using Adobe.Services.Endpoints;
+
     using Microsoft.Extensions.Caching.Distributed;
     using Microsoft.Extensions.Caching.Memory;
     using Microsoft.Extensions.DependencyInjection;
+
     using Moq;
+
     using NUnit.Framework;
+
     using Settings;
 
     [TestFixture]

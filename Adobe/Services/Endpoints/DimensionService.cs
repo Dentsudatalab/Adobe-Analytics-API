@@ -3,14 +3,20 @@
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Threading.Tasks;
+
     using Authorization;
+
     using Extensions;
+
     using Models.Analytics;
+
     using Utility;
 
     public class DimensionService : BaseAdobeService
     {
-        public DimensionService(HttpClient httpClient, AdobeAuthorizationService authService) : base(httpClient, authService)
+        public DimensionService(HttpClient httpClient, AdobeAuthorizationService authService) : base(
+            httpClient,
+            authService)
         {
         }
 
