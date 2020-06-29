@@ -1,6 +1,7 @@
 # Adobe Reporting API for .NET
 
-![.NET 2.2 CD](https://github.com/dentsudatalab/adobe/workflows/.NET%202.2%20CD/badge.svg) ![.NET 2.2 CI](https://github.com/dentsudatalab/adobe/workflows/.NET%202.2%20CI/badge.svg)
+![.NET 2.2 CD](https://github.com/dentsudatalab/Adobe-Analytics-API/workflows/.NET%202.2%20CD/badge.svg) 
+![.NET 2.2 CI](https://github.com/Dentsudatalab/Adobe-Analytics-API/workflows/.NET%202.2%20CI/badge.svg)
 
 A .NET project written to make using the Adobe Reporting API easy.
 
