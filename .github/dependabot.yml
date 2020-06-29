@@ -1,0 +1,37 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/" # `/` checks in `.github/workflows`
+    schedule:
+      interval: "weekly"
+    labels:
+      - "Type: Maintenance"
+    commit-message:
+      prefix: "CI"
+      include: "scope"
+    reviewers:
+      - "kasperhesthaven"
+
+  - package-ecosystem: "nuget"
+    directory: "/Adobe/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "Type: Maintenance"
+    commit-message:
+      prefix: "build"
+      include: "scope"
+    reviewers:
+      - "kasperhesthaven"
+
+  - package-ecosystem: "nuget"
+    directory: "/Adobe.Tests/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "Type: Maintenance"
+    commit-message:
+      prefix: "build"
+      include: "scope"
+    reviewers:
+      - "kasperhesthaven"
