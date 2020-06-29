@@ -19,7 +19,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Setup ReSharper CLT
-        uses: kasperhesthaven/setup-resharper-clt@v1.0.0
+        uses: kasperhesthaven/setup-resharper-clt@1.0.0
 
       - name: Run Code Cleanup
         run: cleanupcode.sh Adobe.sln --profile="Linting"
