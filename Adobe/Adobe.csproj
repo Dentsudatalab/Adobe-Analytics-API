@@ -6,15 +6,11 @@
     <Authors>Frederik Baun Hansen, Kasper Hesthaven</Authors>
     <Product>Adobe Analytics API</Product>
     <Description>This package wraps the Analytics Reporting API making it easier to use.</Description>
-    <PackageProjectUrl>https://gitlab.com/dentsu-data-lab/adobe</PackageProjectUrl>
-    <RepositoryUrl>https://gitlab.com/dentsu-data-lab/adobe</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Dentsudatalab/Adobe-Analytics-API</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Dentsudatalab/Adobe-Analytics-API</RepositoryUrl>
     <PackageTags>adobe analytics</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Company>Dentsu Data Lab</Company>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-    <Version>1.0.9</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
