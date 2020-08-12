@@ -1,0 +1,43 @@
+name: CodeQL
+on:
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: "0 7 * * 0"
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+
+jobs:
+  analyze:
+    name: CodeQL analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Checkout PR head # instead of merge commit if PR
+        run: git checkout HEAD^2
+        if: ${{ github.event_name == 'pull_request' }}
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: csharp
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2.x
+
+      - name: Build solution
+        run: dotnet build /p:UseSharedCompilation=false
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
