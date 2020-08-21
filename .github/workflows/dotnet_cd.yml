@@ -25,7 +25,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.nuget/packages # Mac/Linux
-          key: ${{ hashFiles('*/*.csproj') }}
+          key: ${{ hashFiles('*/packages.lock.json') }}
 
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v1
@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.nuget/packages # Mac/Linux
-          key: ${{ hashFiles('*/*.csproj') }}
+          key: ${{ hashFiles('*/packages.lock.json') }}
 
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v1
