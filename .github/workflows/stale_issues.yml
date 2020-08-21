@@ -1,8 +1,8 @@
 name: Close stale issues
 on:
   schedule:
-    # 08:00 weekdays @ GMT+1
-    - cron: "0 6 * * 1-5"
+    # 08:00 Monday & Friday @ GMT+1
+    - cron: "0 6 * * 1,5"
 
 jobs:
   stale:
@@ -11,11 +11,11 @@ jobs:
       - uses: actions/stale@v3
         with:
           repo-token: ${{ github.token }}
-          stale-issue-message: "This issue is stale because it has been open 30 days with no activity. If this is still relevant remove stale status label or comment or this will be closed in 5 days."
+          stale-issue-message: "This issue is stale because it has been open 30 days with no activity. If this is still relevant remove stale status label or comment or this will be closed in 7 days."
           exempt-issue-labels: "Status: Available,Status: In Progress"
           stale-issue-label: "Status: Stale"
-          stale-pr-message: "This pull request is stale because it has been open 30 days with no activity. If this is still relevant remove stale status label or comment or this will be closed in 5 days."
+          stale-pr-message: "This pull request is stale because it has been open 30 days with no activity. If this is still relevant remove stale status label or comment or this will be closed in 7 days."
           exempt-pr-labels: "Status: Available,Status: In Progress"
           stale-pr-label: "Status: Stale"
           days-before-stale: 30
-          days-before-close: 5
+          days-before-close: 7
