@@ -13,19 +13,7 @@ updates:
       - "kasperhesthaven"
 
   - package-ecosystem: "nuget"
-    directory: "/Adobe/"
-    schedule:
-      interval: "weekly"
-    labels:
-      - "Type: Maintenance"
-    commit-message:
-      prefix: "build"
-      include: "scope"
-    reviewers:
-      - "kasperhesthaven"
-
-  - package-ecosystem: "nuget"
-    directory: "/Adobe.Tests/"
+    directory: "/"
     schedule:
       interval: "weekly"
     labels:
