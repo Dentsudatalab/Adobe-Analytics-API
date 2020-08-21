@@ -26,12 +26,12 @@ jobs:
 
       - name: Check for changes
         id: git-changes
-        run: echo ::set-output name=changes_exist::$(if git diff --quiet && git diff --staged --quiet; then echo "false; else echo "true"; fi)
+        run: echo ::set-output name=changes_exist::$(if git diff --quiet && git diff --staged --quiet; then echo "false"; else echo "true"; fi)
 
       - name: Push any changes
         if: steps.git-changes.outputs.changes_exist == 'true'
         run: |
           git config user.name ${{ github.actor }}
           git config user.email '${{ github.actor }}@users.noreply.github.com'
-          git commit -am "style: Applied R# Rider linting"
+          git commit -am "style: Apply R# Rider linting"
           git push
