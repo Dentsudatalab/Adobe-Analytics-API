@@ -1,0 +1,54 @@
+name: OSSAR
+
+on:
+  pull_request:
+    branches:
+      - master
+  schedule:
+    - cron: "0 7 * * 0"
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+
+jobs:
+  analyze:
+    runs-on: windows-latest
+    name: OSSAR analysis
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - name: Checkout PR head # instead of merge commit if PR
+        run: git checkout HEAD^2
+        if: ${{ github.event_name == 'pull_request' }}
+
+      - name: Create temp folder # Resolves temporary issue in ossar-action
+        run: mkdir D:\a\_msca\versions\temp
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 2.2.x
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.nuget/packages # Mac/Linux
+          key: ${{ hashFiles('*/packages.lock.json') }}
+
+      - name: Build solution
+        run: dotnet build
+
+      - name: Perform OSSAR analysis
+        uses: github/ossar-action@v1
+        id: ossar
+
+      - name: Upload OSSAR results
+        uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: ${{ steps.ossar.outputs.sarifFile }}
