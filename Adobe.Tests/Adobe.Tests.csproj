@@ -27,4 +27,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Adobe\Adobe.csproj" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
 </Project>
