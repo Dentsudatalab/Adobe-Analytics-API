@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2.3.1
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
 
       - name: Setup ReSharper CLT
-        uses: kasperhesthaven/setup-resharper-clt@v1.0.0
+        uses: kasperhesthaven/setup-resharper-clt@v1
 
       - name: Run Code Cleanup
         run: cleanupcode.sh Adobe.sln --profile="Linting"
