@@ -32,7 +32,7 @@ jobs:
           languages: csharp
 
       - name: Cache NuGet packages
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.4
         with:
           path: ~/.nuget/packages # Mac/Linux
           key: ${{ hashFiles('*/packages.lock.json') }}
