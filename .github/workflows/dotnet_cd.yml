@@ -62,7 +62,7 @@ jobs:
       - name: Get version number & set as env
         env:
           TAG_NAME: ${{ github.event.release.tag_name }}
-        run: echo ::set-env name=VERSION::$( echo "$TAG_NAME" | cut -c 2- )
+        run: echo "VERSION=$(echo "$TAG_NAME" | cut -c 2- )" >> $GITHUB_ENV
 
       - name: Pack project
         run: dotnet pack --configuration Release -p:PackageVersion=$VERSION
