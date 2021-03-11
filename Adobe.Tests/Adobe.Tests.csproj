@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -27,8 +27,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Adobe\Adobe.csproj" />
   </ItemGroup>
-
-  <PropertyGroup>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-  </PropertyGroup>
 </Project>

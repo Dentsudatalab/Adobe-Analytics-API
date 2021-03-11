@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/Dentsudatalab/Adobe-Analytics-API</RepositoryUrl>
     <PackageTags>adobe analytics</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Company>Dentsu Data Lab</Company>
+    <Company>Dentsu Danmark</Company>
   </PropertyGroup>
 
   <ItemGroup>

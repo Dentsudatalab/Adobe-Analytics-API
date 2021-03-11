@@ -2,7 +2,7 @@
 
 ![.NET 2.2 CD](https://github.com/dentsudatalab/Adobe-Analytics-API/workflows/.NET%202.2%20CD/badge.svg) ![.NET 2.2 CI](https://github.com/Dentsudatalab/Adobe-Analytics-API/workflows/.NET%202.2%20CI/badge.svg) ![CodeQL](https://github.com/Dentsudatalab/Adobe-Analytics-API/workflows/CodeQL/badge.svg)
 
-A .NET project written to make using the Adobe Reporting API easy.
+A .NET project written to make using the [Adobe Reporting API](https://www.adobe.io/apis/experiencecloud/analytics/docs.html) easy.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ These instructions will guide you through installing and using the package to ac
 
 ### Installing
 
-First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). Then, install [Adobe Reporting API](https://www.nuget.org/packages/DentsuDataLab.Adobe/) from the package manager console:
+First, [install NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). Then, install the NuGet package [Adobe Reporting API](https://www.nuget.org/packages/DentsuDataLab.Adobe/) into your application:
 
 ```
 PM> Install-Package DentsuDataLab.Adobe
@@ -49,8 +49,13 @@ The following services are available:
 
 ## Authors
 
-- **Frederik Baun Hansen** - _Initial work_
+- **Frederik Baun Hansen** - Primary developer
+- **Kasper Hesthaven**
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.txt) file for details.
+
+## Contributing
+
+For details on contributing to this repository, see the [contributing guide](CONTRIBUTING.md).

@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2020 Dentsu Data Lab
+Copyright (c) 2020 Frederik Hansen, Kasper Hesthaven and Dentsu Danmark A/S
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
