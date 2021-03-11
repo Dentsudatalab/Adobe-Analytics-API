@@ -7,7 +7,7 @@ updates:
     labels:
       - "Type: Maintenance"
     commit-message:
-      prefix: "CI"
+      prefix: "ci"
       include: "scope"
     reviewers:
       - "kasperhesthaven"

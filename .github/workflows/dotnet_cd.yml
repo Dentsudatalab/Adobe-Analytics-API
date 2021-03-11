@@ -1,4 +1,5 @@
 name: .NET 2.2 CD
+
 on:
   release:
     types:
@@ -59,7 +60,7 @@ jobs:
         with:
           dotnet-version: 2.2.x
 
-      - name: Get version number & set as env
+      - name: Get version number & set in env
         env:
           TAG_NAME: ${{ github.event.release.tag_name }}
         run: echo "VERSION=$(echo "$TAG_NAME" | cut -c 2- )" >> $GITHUB_ENV

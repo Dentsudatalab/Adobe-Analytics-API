@@ -1,4 +1,5 @@
-name: CodeQL
+name: CodeQL Scan
+
 on:
   pull_request:
     branches:
@@ -19,12 +20,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-
-      - name: Checkout PR head # instead of merge commit if PR
-        run: git checkout HEAD^2
-        if: ${{ github.event_name == 'pull_request' }}
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v1

@@ -1,4 +1,5 @@
 name: ReSharper linting
+
 on:
   pull_request:
     branches:
