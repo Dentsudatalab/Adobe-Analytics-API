@@ -1,22 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>DentsuDataLab.Adobe</PackageId>
     <Authors>Frederik Baun Hansen, Kasper Hesthaven</Authors>
-    <Product>Adobe Analytics API</Product>
-    <Description>This package wraps the Analytics Reporting API making it easier to use.</Description>
-    <PackageProjectUrl>https://github.com/Dentsudatalab/Adobe-Analytics-API</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Dentsudatalab/Adobe-Analytics-API</RepositoryUrl>
-    <PackageTags>adobe analytics</PackageTags>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Company>Dentsu Danmark</Company>
+    <Description>This package wraps the Analytics Reporting API making it easier to use.</Description>
+    <PackageId>DentsuDataLab.Adobe</PackageId>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/Dentsudatalab/Adobe-Analytics-API</PackageProjectUrl>
+    <PackageTags>adobe analytics</PackageTags>
+    <Product>Adobe Analytics API</Product>
+    <RepositoryUrl>https://github.com/Dentsudatalab/Adobe-Analytics-API</RepositoryUrl>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Models\General\" />
-    <Folder Include="Models\Report\" />
     <Folder Include="Models\Ranked\" />
+    <Folder Include="Models\Report\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,8 +35,4 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
-  <PropertyGroup>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-  </PropertyGroup>
 </Project>
