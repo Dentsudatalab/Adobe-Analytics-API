@@ -53,10 +53,10 @@ namespace Adobe.Models.Analytics
         public string SiteTitle { get; set; }
 
         [JsonProperty(PropertyName = "modified")]
-        public System.DateTime? Modified { get; set; }
+        public DateTime? Modified { get; set; }
 
         [JsonProperty(PropertyName = "created")]
-        public System.DateTime? Created { get; set; }
+        public DateTime? Created { get; set; }
     }
 
     public class AnalyticsDateRangeFields : FieldsDescriptor

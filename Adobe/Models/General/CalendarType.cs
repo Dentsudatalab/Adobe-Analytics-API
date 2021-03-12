@@ -22,6 +22,6 @@ namespace Adobe.Models.General
         public CalendarValueType Type { get; set; }
 
         [JsonProperty(PropertyName = "anchorDate")]
-        public System.DateTime? AnchorDate { get; set; }
+        public DateTime? AnchorDate { get; set; }
     }
 }

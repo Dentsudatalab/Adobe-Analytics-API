@@ -20,7 +20,7 @@ namespace Adobe.Models.Analytics
         public bool? ChangePassword { get; set; }
 
         [JsonProperty(PropertyName = "createDate")]
-        public System.DateTime? CreateDate { get; set; }
+        public DateTime? CreateDate { get; set; }
 
         [JsonProperty(PropertyName = "disabled")]
         public bool? Disabled { get; set; }
@@ -41,13 +41,13 @@ namespace Adobe.Models.Analytics
         public string LastName { get; set; }
 
         [JsonProperty(PropertyName = "lastAccess")]
-        public System.DateTime? LastAccess { get; set; }
+        public DateTime? LastAccess { get; set; }
 
         [JsonProperty(PropertyName = "phoneNumber")]
         public string PhoneNumber { get; set; }
 
         [JsonProperty(PropertyName = "tempLoginEnd")]
-        public System.DateTime? TempLoginEnd { get; set; }
+        public DateTime? TempLoginEnd { get; set; }
 
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }

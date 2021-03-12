@@ -63,7 +63,7 @@ namespace Adobe.Models.Analytics
         public IDictionary<string, object> Compatibility { get; set; }
 
         [JsonProperty(PropertyName = "definitionLastModified")]
-        public System.DateTime? DefinitionLastModified { get; set; }
+        public DateTime? DefinitionLastModified { get; set; }
 
         [JsonProperty(PropertyName = "categories")]
         public IList<string> Categories { get; set; }
@@ -82,10 +82,10 @@ namespace Adobe.Models.Analytics
         public IList<Tag> Tags { get; set; }
 
         [JsonProperty(PropertyName = "modified")]
-        public System.DateTime? Modified { get; set; }
+        public DateTime? Modified { get; set; }
 
         [JsonProperty(PropertyName = "created")]
-        public System.DateTime? Created { get; set; }
+        public DateTime? Created { get; set; }
 
         protected bool Equals(AnalyticsSegmentResponseItem other)
         {
@@ -100,7 +100,7 @@ namespace Adobe.Models.Analytics
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
 
             return Equals((AnalyticsSegmentResponseItem)obj);
         }

@@ -11,7 +11,7 @@ namespace Adobe.Models.General
         public bool? Published { get; set; }
 
         [JsonProperty(PropertyName = "publishedDate")]
-        public System.DateTime? PublishedDate { get; set; }
+        public DateTime? PublishedDate { get; set; }
 
         [JsonProperty(PropertyName = "lookbackPeriod")]
         public int? LookbackPeriod { get; set; }
