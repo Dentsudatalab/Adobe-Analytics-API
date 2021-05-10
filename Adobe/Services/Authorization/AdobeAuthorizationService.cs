@@ -56,6 +56,9 @@
 
                 var clientInfo = await GetClientInfo(authValues);
 
+                if (clientInfo.Error != null)
+                    throw new ApiException(clientInfo.Error);
+
                 if (clientInfo.HasValue)
                     _adobeClientStore.Client = clientInfo.Value;
             }
