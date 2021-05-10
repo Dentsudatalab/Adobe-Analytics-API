@@ -250,9 +250,7 @@
 
 
                 var error = JsonConvert.DeserializeObject<ApiError>(content);
-                error.Messages = error.Messages ?? new string[]
-                {
-                };
+                error.Messages = error.Messages ?? Array.Empty<string>();
                 error.Messages = error.Messages.Append($"StatusCode: {response.StatusCode}")
                     .Append($"Content: {content}")
                     .ToArray();
