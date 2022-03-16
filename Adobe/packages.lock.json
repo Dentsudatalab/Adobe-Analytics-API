@@ -4,9 +4,9 @@
     ".NETStandard,Version=v2.0": {
       "jose-jwt": {
         "type": "Direct",
-        "requested": "[2.6.0, )",
-        "resolved": "2.6.0",
-        "contentHash": "NXlnOROsam/xuPYgOtYbjANss2fbrHRq7lrwJH+1RpY5F5yKcU4NbHcBTlUWak4Qu4S4XfwGGBnET5p00TcvfA==",
+        "requested": "[3.2.0, )",
+        "resolved": "3.2.0",
+        "contentHash": "Z6xpGmnAgryUgxKqIZWL6tXVlVZKVVVTegYOS0fZ0GPLsj5LCGiPlHbweXXbkHw4ojfLpeIVCsH81U/uLUgwBQ==",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
           "Newtonsoft.Json": "9.0.1",
@@ -66,9 +66,9 @@
       },
       "Portable.BouncyCastle": {
         "type": "Direct",
-        "requested": "[1.8.10, )",
-        "resolved": "1.8.10",
-        "contentHash": "XLhjNAwuVB9ynwn11l5K44eyozh8q6gFseTrlnLNttejimglX7+F9+vxh60LPjvA/DAt6fUdS43N3ah8K6eaWg=="
+        "requested": "[1.9.0, )",
+        "resolved": "1.9.0",
+        "contentHash": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw=="
       },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
