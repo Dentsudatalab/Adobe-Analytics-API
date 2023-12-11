@@ -28,7 +28,7 @@ jobs:
           key: ${{ hashFiles('*/packages.lock.json') }}
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 2.2.x
 
